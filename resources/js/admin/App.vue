@@ -1,7 +1,8 @@
 <template>
-    <!-- <router-view/> -->
-    <h1>Test</h1>
-</template>
+    <div>
+      <Button>Click Me</Button>
+    </div>
+  </template>
 
 <script lang="ts">
   import { defineComponent } from "@vue/runtime-core";
