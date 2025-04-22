@@ -7,10 +7,12 @@ import Material from '@primeuix/themes/material';
 
 // PrimeVue components
 import Button from "primevue/button"
+import Menu from 'primevue/menu';
 
 const app = createApp(App);
 
 app.component('Button', Button);
+app.component('Menu', Menu);
 
 app.use(PrimeVue, {
     theme: {
