@@ -1,5 +1,5 @@
 {
-        "compilerOptions": {
+    "compilerOptions": {
         "target": "esnext",
         "module": "esnext",
         "strict": true,
@@ -14,7 +14,6 @@
         "sourceMap": true,
         "baseUrl": ".",
         "types": [
-            "webpack-env",
             "vite/client"
         ],
           "paths": {
