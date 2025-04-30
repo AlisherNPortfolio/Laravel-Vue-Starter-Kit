@@ -11,7 +11,7 @@
           />
 
           <q-btn flat no-caps no-wrap class="q-ml-xs" v-if="$q.screen.gt.xs">
-            <q-icon :name="fasShop" color="green" size="28px" />
+            <q-icon name="fas fa-shopping-cart" color="green" size="20px" />
             <q-toolbar-title shrink class="text-weight-bold">
               Starter Kit
             </q-toolbar-title>
@@ -32,7 +32,7 @@
             </q-btn>
             <q-btn round flat>
               <q-avatar size="26px">
-                <q-icon :name="fasUser" />
+                <q-icon name="fas fa-user" />
               </q-avatar>
               <q-tooltip>Account</q-tooltip>
             </q-btn>
