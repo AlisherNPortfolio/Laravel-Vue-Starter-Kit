@@ -2,6 +2,8 @@ import './bootstrap';
 
 import { createApp } from 'vue';
 import App from './App.vue';
+import store from './store';
+import {Store} from 'vuex';
 
 import { Quasar } from 'quasar'
 
@@ -12,6 +14,13 @@ import 'quasar/src/css/index.sass';
 
 const app = createApp(App);
 
+declare module '@vue/runtime-core' {
+    export interface ComponentCustomProperties {
+        $store: Store<any>
+    }
+}
+
+app.use(store);
 
 app.use(Quasar, {
     plugins: {
