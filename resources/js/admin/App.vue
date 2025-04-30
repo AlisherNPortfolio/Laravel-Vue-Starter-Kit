@@ -1,56 +1,10 @@
 <template>
-    <div class="layout-wrapper">
 
-      <Topbar @toggle-sidebar="toggleSidebar" />
+</template>
 
-      <Sidebar :visible="sidebarVisible" />
+<script setup>
 
-      <div :class="['layout-main', { 'layout-main-expanded': !sidebarVisible }]">
-        <div class="p-4">
-          <h1>Dashboard</h1>
-          <div class="surface-card p-4 shadow-2 border-round">
-            <div class="text-xl text-center mb-5">Welcome to your Admin Dashboard</div>
-            <div class="p-4">
-              <p>This is your empty dashboard page. Add your widgets and content here.</p>
-            </div>
-          </div>
-        </div>
+</script>
 
-        <Footer />
-      </div>
-    </div>
-  </template>
-
-  <script setup>
-  import { ref } from 'vue';
-  import Topbar from './layouts/top-bar.vue';
-  import Sidebar from './layouts/side-bar.vue';
-  import Footer from './layouts/app-footer.vue';
-
-  const sidebarVisible = ref(true);
-
-  const toggleSidebar = () => {
-    sidebarVisible.value = !sidebarVisible.value;
-  };
-  </script>
-
-  <style>
-  .layout-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .layout-main {
-    margin-left: 250px;
-    min-height: calc(100vh - 112px);
-    transition: margin-left 0.3s;
-    padding-top: 64px;
-    padding-bottom: 48px;
-  }
-
-  .layout-main-expanded {
-    margin-left: 0;
-  }
-
-  </style>
+<style>
+</style>
