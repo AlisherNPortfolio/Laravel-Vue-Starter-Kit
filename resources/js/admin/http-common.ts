@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from "axios";
 import { HttpResponseStatuses } from "./types/router-enum";
-import TokenService from "./services/token-service";
+import TokenService from "./services/local/token-service";
 import notify from "./helpers/notify";
 import store from "./store";
 
@@ -21,7 +21,7 @@ apiClient.interceptors.request.use((config: any) => {
         config.headers.Authorization = 'Bearer ' + token
     }
 
-    store.commit('setLoaderValue', {value: true});
+    store.setLoadingStatus(true);
     return config;
 }, error => Promise.reject(error));
 
@@ -32,7 +32,7 @@ apiClient.interceptors.response.use((response: any) => {
         notify.success(message)
     }
 
-    store.commit('setLoaderValue', {value: false});
+    store.setLoadingStatus(false);
     return Promise.resolve(response);
 }, (error: any) => {
 
@@ -50,7 +50,7 @@ apiClient.interceptors.response.use((response: any) => {
             notify.error(errors[i]);
         }
     }
-    store.commit('setLoaderValue', {value: false});
+    store.setLoadingStatus(false);
     return Promise.reject(error);
 }, );
 

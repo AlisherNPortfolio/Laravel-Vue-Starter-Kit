@@ -5,34 +5,37 @@ import { NotifyPosition, NotifyParams } from "../contracts/ui/INotify";
 class notify {
     error(
         message: string,
-        position: NotifyPosition = 'bottom-right'
+        position: NotifyPosition = 'bottom-right',
+        caption: string = 'Error!'
     ): void {
         this.display({
             message, position,
             type: 'negative',
-            caption: 'Error!'
+            caption: caption
         });
     }
 
     success(
         message: string,
-        position: NotifyPosition = 'bottom-right'
+        position: NotifyPosition = 'bottom-right',
+        caption: string = 'Success!'
     ): void {
         this.display({
             message, position,
             type: 'positive',
-            caption: 'Success!'
+            caption: caption
         });
     }
 
     warning(
         message: string,
-        position: NotifyPosition = 'bottom-right'
+        position: NotifyPosition = 'bottom-right',
+        caption: string = 'Warning!'
     ): void {
         this.display({
             message, position,
             type: 'warning',
-            caption: 'Warning!'
+            caption: caption
         });
     }
 
