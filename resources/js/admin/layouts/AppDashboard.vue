@@ -41,8 +41,12 @@
   }
 
   const menuList: Menu[] = [
-    { icon: "home", text: "Dashboard", link: '/' }
-
+    { icon: "home", text: "Dashboard", link: '/' },
+    { icon: "people", text: "Users", children: [
+        { icon: "list", text: "Users list", link: '/users' },
+        { icon: "admin_panel_settings", text: "Roles", link: '/roles' }
+      ]
+    }
   ];
 
 
