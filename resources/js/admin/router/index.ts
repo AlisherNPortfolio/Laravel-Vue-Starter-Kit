@@ -1,4 +1,4 @@
-import TokenService from '../services/token-service';
+import TokenService from '../services/local/token-service';
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
@@ -59,7 +59,7 @@ router.beforeEach((to, from, next) => {
       next();
     }
   } else {
-    if (to.path === '') {
+    if (to.path === '' || to.path === '/') {
       next('/auth/login');
     } else {
       next();
