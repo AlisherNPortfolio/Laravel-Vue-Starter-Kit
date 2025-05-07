@@ -1,4 +1,4 @@
-import { LocaleStorageItems } from "../types/router-enum";
+import { LocaleStorageItems } from "../../types/router-enum";
 
 const TokenService = {
 	getToken() {
