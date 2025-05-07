@@ -30,6 +30,22 @@ const routes: Array<RouteRecordRaw> = [
                     path: '',
                     name: 'dashboard',
                     component: () => import('../views/dashboard/index.vue')
+                },
+                {
+                    path: 'users',
+                    component: () => import('../views/users/index.vue'),
+                    children: [
+                        {
+                            path: '',
+                            name: 'users',
+                            component: () => import('../views/users/list.vue')
+                        },
+                        {
+                            path: 'add',
+                            name: 'users-add',
+                            component: () => import('../views/users/create.vue')
+                        }
+                    ]
                 }
             ]
         },
