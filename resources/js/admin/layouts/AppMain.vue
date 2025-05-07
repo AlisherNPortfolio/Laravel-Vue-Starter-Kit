@@ -8,5 +8,5 @@
 import { computed, ComputedRef } from "vue";
 import store from '../store';
 
-let visible: ComputedRef<boolean> = computed(() => store.state.isLoading);
+let visible: ComputedRef<boolean> = computed(() => store.isLoading);
 </script>

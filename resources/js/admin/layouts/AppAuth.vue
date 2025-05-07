@@ -4,7 +4,7 @@
         <div class="shape"></div>
     </div>
     <router-view></router-view>
-    <q-inner-loading :showing="visible">
+    <q-inner-loading :showing="store.isLoading">
         <q-spinner-gears size="50px" color="primary" />
     </q-inner-loading>
 </template>
@@ -19,7 +19,7 @@ onBeforeUnmount(() => {
     body.classList.remove('auth-layout')
 })
 
-let visible: ComputedRef<boolean> = computed(() => store.state.isLoading);
+// let visible: ComputedRef<boolean> = computed(() => store.isLoading);
 </script>
 <style>
 .auth-layout {
