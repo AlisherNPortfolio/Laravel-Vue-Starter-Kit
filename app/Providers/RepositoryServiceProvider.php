@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Repositories\Contracts\User\IAdminRepository;
 use App\Repositories\Contracts\User\IUserRepository;
+use App\Repositories\User\AdminRepository;
 use App\Repositories\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -16,6 +18,11 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             IUserRepository::class,
             UserRepository::class
+        );
+
+        $this->app->bind(
+            IAdminRepository::class,
+            AdminRepository::class
         );
     }
 
