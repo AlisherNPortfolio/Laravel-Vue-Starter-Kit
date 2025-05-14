@@ -17,12 +17,12 @@ class UserService extends BaseService
 
     public function getPaginate($id, $perPage = 15)
     {
-        [$data, $count] = Cache::remember('category_list', 60, function () use ($id, $perPage) {
-            return $this->repository->getPagination($id, $perPage);
+        [$data, $count] = Cache::remember('users_list', 60, function () use ($id, $perPage) {
+            return $this->repository->getPagination($id, $perPage, ['roles']);
         });
 
         return $this->jsonSuccess([
-            'data' => UserResource::collection($data->filter(fn ($d) => $d->parent_id)),
+            'data' => UserResource::collection($data),
             'count' => $count
         ]);
     }

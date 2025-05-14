@@ -36,11 +36,11 @@ export default function useUser() {
             field: row => row.name
         },
         {
-            name: 'is_active',
+            name: 'email',
             required: true,
             label: 'Email',
             align: 'center',
-            field: 'is_active'
+            field: 'email'
         },
         {
             name: 'actions',

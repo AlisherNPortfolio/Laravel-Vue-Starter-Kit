@@ -17,7 +17,7 @@
     <div class="q-mx-md">
         <q-table
             flat bordered
-            title="Brands list"
+            title="Users list"
             :rows="list"
             :columns="columns"
             row-key="name"
