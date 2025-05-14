@@ -46,6 +46,22 @@ const routes: Array<RouteRecordRaw> = [
                             component: () => import('../views/users/create.vue')
                         }
                     ]
+                },
+                {
+                    path: 'roles',
+                    component: () => import('../views/roles/index.vue'),
+                    children: [
+                        {
+                            path: '',
+                            name: 'roles',
+                            component: () => import('../views/roles/list.vue')
+                        },
+                        {
+                            path: 'add',
+                            name: 'roles-add',
+                            component: () => import('../views/roles/create.vue')
+                        }
+                    ]
                 }
             ]
         },
