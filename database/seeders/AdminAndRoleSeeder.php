@@ -3,14 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\Admin;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
-class UserAndRoleSeeder extends Seeder
+class AdminAndRoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -39,7 +38,6 @@ class UserAndRoleSeeder extends Seeder
 
         Schema::disableForeignKeyConstraints();
         DB::table('admin')->truncate();
-        DB::table('users')->truncate();
         Schema::enableForeignKeyConstraints();
 
         app()['cache']->forget('spatie.permission.cache');
@@ -47,5 +45,7 @@ class UserAndRoleSeeder extends Seeder
             $userModel = Admin::query()->create($user);
             $userModel->assignRole($roles[$key]);
         }
+
+        Model::reguard();
     }
 }

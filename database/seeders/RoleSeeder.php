@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -51,8 +50,8 @@ class RoleSeeder extends Seeder
         $admin = Role::query()->firstOrCreate(['name' => 'admin', 'guard_name' => 'admins']);
         $moderator = Role::query()->firstOrCreate(['name' => 'moderator', 'guard_name' => 'admins']);
         $editor = Role::query()->firstOrCreate(['name' => 'editor', 'guard_name' => 'admins']);
-        $user = Role::query()->firstOrCreate(['name' => 'user', 'guard_name' => 'admins']);
-        $guest = Role::query()->firstOrCreate(['name' => 'guest', 'guard_name' => 'admins']);
+        $user = Role::query()->firstOrCreate(['name' => 'user', 'guard_name' => 'api']);
+        $guest = Role::query()->firstOrCreate(['name' => 'guest', 'guard_name' => 'api']);
 
         return [$superadmin, $admin, $moderator, $editor, $user, $guest];
     }

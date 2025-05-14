@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Traits\HasRoles;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
@@ -16,7 +17,8 @@ class Admin extends Authenticatable implements JWTSubject
 
     protected $table = 'admin';
 
-    protected $guard = 'admin';
+    protected string $guard_name = 'admins';
+    protected function getDefaultGuardName(): string { return $this->guard_name; }
 
     /**
      * The attributes that are mass assignable.
