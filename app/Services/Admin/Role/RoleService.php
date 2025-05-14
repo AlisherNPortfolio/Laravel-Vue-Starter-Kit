@@ -1,42 +1,43 @@
 <?php
 
-namespace App\Services\Admin\User;
+namespace App\Services\Admin\Role;
 
-use App\Http\Resources\Admin\User\UserResource;
-use App\Repositories\Contracts\User\IUserRepository;
+use App\Http\Resources\Admin\Role\RoleResource;
+use App\Repositories\Contracts\Role\IRoleRepository;
 use App\Services\BaseService;
 use Exception;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\DB;
 
-class UserService extends BaseService
+class RoleService extends BaseService
 {
-    public function __construct(private IUserRepository $repository)
+    public function __construct(private IRoleRepository $repository)
     {
     }
 
     public function getPaginate($id, $perPage = 15)
     {
-        [$data, $count] = Cache::remember('users_list', 60, function () use ($id, $perPage) {
-            return $this->repository->getPagination($id, $perPage, ['roles']);
+        [$data, $count] = Cache::remember('roles_list', 60, function () use ($id, $perPage) {
+            return $this->repository->getPagination($id, $perPage, relations: ['permissions']);
         });
 
         return $this->jsonSuccess([
-            'data' => UserResource::collection($data),
+            'data' => RoleResource::collection($data),
             'count' => $count
         ]);
     }
 
     public function getById($id)
     {
-        $user = $this->repository->find($id);
-        abort_if(!$user, 404, "User not found!");
+        $role = $this->repository->find($id);
+        abort_if(!$role, 404, message: "Role not found!");
 
-        return $this->jsonSuccess($user);
+        return $this->jsonSuccess($role);
     }
 
     public function create(array $data)
     {
+        // TODO: rol saqlashni to'g'rilash
         try {
             DB::beginTransaction();
 
@@ -59,10 +60,10 @@ class UserService extends BaseService
     public function update(array $data, int|string $id)
     {
         try {
-            $user = $this->repository->find($id);
-            abort_if(!$user, 404, "User not found");
+            $role = $this->repository->find($id);
+            abort_if(!$role, 404, message: "Role not found");
 
-            $user->update($data);
+            $role->update($data);
 
             return $this->jsonSuccess(['message' => "Updated!"]);
         } catch (Exception $e) {

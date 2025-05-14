@@ -13,3 +13,4 @@
 
 require __DIR__.'/partials/admin/auth.php';
 require __DIR__.'/partials/admin/users.php';
+require __DIR__.'/partials/admin/roles.php';
