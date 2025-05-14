@@ -18,10 +18,7 @@ export default function useRole() {
     let form: Ref<IRole> = ref({
             id: null,
             name: null,
-            email: null,
-            password: null,
-            password_confirmation: null,
-            remember: false
+            guard_name: null,
         });
     const formCopy: Ref<IRole> = form;
     const list: Ref<IRole[]> = ref([]);
@@ -34,6 +31,13 @@ export default function useRole() {
             label: 'Name',
             align: 'left',
             field: row => row.name
+        },
+        {
+            name: 'guard_name',
+            required: true,
+            label: 'Guard name',
+            align: 'left',
+            field: row => row.guard_name
         },
         {
             name: 'actions',
